@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Ajout d'un film</title>
+  </head>
+  <body class="p-5">
+    <h1 class="mb-5">Ajout d'un film</h1>
+	<div class="container">
+	
+		<form action="" method="post">
+			 
+			 <div class="form-row">
+				<div class="form-group col-md-5">
+					<div class="form-group">
+						<label for="movie_title">Titre du film</label>
+						<input type="text" class="form-control" id="movie_title" name="movie_title" value ="">
+					</div>
+				</div>
+			
+				<div class="form-group col-md-5">
+					<div class="form-group">
+						<label for="movie_original_title">Titre du film original</label>
+						<input type="text" class="form-control" id="movie_original_title" name="movie_original_title" value ="">
+					</div>
+				</div>
+			</div>
+				
+			<div class="form-row">
+				<div class="form-group col-md-5">
+					<div class="form-group">
+						<div class="form-group">
+							<label for="movie_url_poster">Affiche du film</label>
+							<input type="file" class="form-control-file" id="movie_url_poster">
+						</div>
+					</div>
+				</div>
+					
+				
+				
+				<div class="form-group col-md-5">	
+					<div class="form-group">
+						<label class="mr-sm-2" for="	country_id">Pays</label>
+						<select class="custom-select" id="country_id">
+							<option value="" disabled selected>Pays</option>
+							{% for country in countries %}
+								<option value="{{ country.country_id }}">{{ country.country_name}}</option>
+							{% endfor %}
+						</select>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<div class="form-group">
+						<label for="movie_release_date">Date de sortie (original)</label>
+						<input type="date" class="form-control" name="movie_release_date">
+					</div>
+				</div>
+				
+				<div class="form-group col-md-4">
+					<div class="form-group">
+						<label for="movie_release_french_date">Date de sortie (France)</label>
+						<input type="date" class="form-control" name="movie_release_french_date">
+					</div>
+				</div>
+				
+				<div class="form-group col-md-2">
+					<div class="form-group">
+						<label for="movie_duration">Durée (min)</label>
+						<input type="number" id="movie_duration" class="form-control" value="10" min="0" max="1000" step="5"/>
+					</div>
+				</div>
+			</div>
+			
+			<div class="form-row">
+				<div class="form-group col-md-5">
+					<div class="form-group">
+						<label for="movie_rating_pro">Note de la presse (min)</label>
+						<input type="number" id="movie_rating_pro" class="form-control" value="0" min="0" max="5" step="0.5"/>
+					</div>
+				</div>
+				
+				<div class="form-group col-md-5">
+					<div class="form-group">
+						<label for="movie_rating_consumer">Note du public</label>
+						<input type="number" id="movie_rating_consumer" class="form-control" value="0" min="0" max="5" step="0.5"/>
+					</div>
+				</div>
+			</div>
+			
+				
+			<div class="form-row">
+				<div class="form-group col-md-3">	
+					<div class="form-group">
+						<label class="mr-sm-2" for="movie_genre_id">Genres</label>
+						<select class="custom-select" id="movie_genre_id">
+						  <option value="" disabled selected></option>
+						  {% for genre in genres %}
+								<option value="{{ genre.genre_id }}">{{ genre.genre_name}}</option>
+						  {% endfor %}
+						</select>
+					</div>
+				</div>
+			
+				<div class="form-group col-md-3">
+					<div class="form-group">
+						<label class="mr-sm-2" for="movie_age_id">Age</label>
+						<select class="custom-select" id="movie_age_id">
+						  <option value="" disabled selected></option>
+						  {% for age in ages %}
+								<option value="{{ age.age_id }}">{{ age.age_name}}</option>
+						  {% endfor %}
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group col-md-3">
+					<div class="form-group">
+						<label class="mr-sm-2" for="studio_id">Studios</label>
+						<select class="custom-select" id="studio_id">
+						  <option value="" disabled selected></option>
+						  {% for studio in studios %}
+								<option value="{{ studio.studio_id }}">{{ studio.studio_name}}</option>
+						  {% endfor %}
+						</select>
+					</div>
+				</div>
+			</div>
+			
+			<div class="form-row">
+				<div class="form-group col-md-5">
+					<div class="form-group">
+						<label for="movie_synopsis">Synopsis</label>
+						<textarea class="form-control" id="movie_synopsis" rows="5"></textarea>
+					</div>
+				</div>
+			</div>
+				
+		    <button type="submit" class="btn btn-primary">Ajouter</button>
+		</form>
+	</div>
+	
+	<a href="/" class="btn btn-primary mt-3">Accueil</a>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
