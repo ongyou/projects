@@ -1,0 +1,17 @@
+{
+	"rootAPI": "/mookie-api/v1/",
+	"port":8080,
+	"db": {
+		"host":"localhost",
+		"database":"mookie",
+		"user":"root",
+		"password":""
+	},
+	"errors" : {
+		"wrongId" : "wrong id",
+		"wrongMaxValue" : "wrong max value",
+		"nameAlreadyIn" : "name already in",
+		"noNameValue" : "no name value",
+		"sameName" : "same name"	
+	}
+}
